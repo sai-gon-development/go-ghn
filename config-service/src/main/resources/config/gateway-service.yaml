@@ -1,0 +1,102 @@
+server:
+  port: 1002
+
+management:
+  endpoints: 
+    web:
+      exposure: 
+        include: "health, info"
+  info:
+    java:
+      enabled: true
+    env:
+      enabled: true
+
+info:
+  application: gateway-server
+  label: Gateway Server
+  version: 1.0.0
+  state: Development
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://richard:richard@${eureka.instance.hostname}:1001/eureka/
+
+logging:
+  file:
+    name: ${pwd}/gateway-service/log/application.log
+  pattern: 
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+              
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: ghn-service
+        uri: lb://ghn-service
+        predicates:
+        - Path=/ghn/**
+        filters:
+        - RewritePath=/ghn/(?<path>.*), /$\{path}
+      - id: openapi
+        uri: http://localhost:${server.port}
+        predicates:
+        - Path=/v3/api-docs/**
+        filters:
+        - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: internal
+        url: /v3/api-docs/internal
+      - name: ghn
+        url: /v3/api-docs/ghn
+
+--- 
+spring:
+  config:
+    activate:
+      on-profile:
+      - localhost
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    serviceUrl:
+      defaultZone: http://richard:richard@${eureka.instance.hostname}:1001/eureka/
+
+--- 
+spring:
+  config:
+    activate:
+      on-profile:
+      - development
+eureka:
+  instance:
+    hostname: 192.168.1.9
+  client:
+    serviceUrl:
+      defaultZone: http://richard:richard@${eureka.instance.hostname}:1001/eureka/
+
+--- 
+spring:
+  config:
+    activate:
+      on-profile:
+      - production
+eureka:
+  instance:
+    hostname: 192.168.1.9
+  client:
+    serviceUrl:
+      defaultZone: http://richard:richard@${eureka.instance.hostname}:1001/eureka/
+springdoc:
+  swagger-ui:
+    enabled: false
