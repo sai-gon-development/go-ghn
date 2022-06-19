@@ -1,4 +1,4 @@
-module github.com/sai-gon-development/go-ghn/go-ghn-service
+module github.com/sai-gon-development/go-ghn
 
 go 1.18
 
@@ -8,6 +8,7 @@ require (
 	github.com/joho/godotenv v1.4.0
 	github.com/swaggo/files v0.0.0-20220610200504-28940afbdbfe
 	github.com/swaggo/gin-swagger v1.5.0
+	github.com/xuanbo/eureka-client v0.0.5
 	go.mongodb.org/mongo-driver v1.9.1
 )
 
@@ -38,6 +39,7 @@ require (
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
 	github.com/xdg-go/scram v1.1.1 // indirect
 	github.com/xdg-go/stringprep v1.0.3 // indirect
+	github.com/xuanbo/requests v0.0.1 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a // indirect
 	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e // indirect
 	golang.org/x/net v0.0.0-20220617184016-355a448f1bc9 // indirect
