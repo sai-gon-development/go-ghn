@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/sai-gon-development/go-ghn/go-ghn-service/apis/routes"
-	"github.com/sai-gon-development/go-ghn/go-ghn-service/configs"
+	"github.com/sai-gon-development/go-ghn/apis/routes"
+	"github.com/sai-gon-development/go-ghn/configs"
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	eureka "github.com/xuanbo/eureka-client"

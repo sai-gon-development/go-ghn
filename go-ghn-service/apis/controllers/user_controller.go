@@ -2,9 +2,9 @@ package controllers
 
 import (
 	"context"
-	"github.com/sai-gon-development/go-ghn/go-ghn-service/apis/models/responses"
-	"github.com/sai-gon-development/go-ghn/go-ghn-service/configs"
-	"github.com/sai-gon-development/go-ghn/go-ghn-service/io/entities"
+	"github.com/sai-gon-development/go-ghn/apis/models/responses"
+	"github.com/sai-gon-development/go-ghn/configs"
+	"github.com/sai-gon-development/go-ghn/io/entities"
 	"net/http"
 	"time"
 

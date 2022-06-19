@@ -1,4 +1,4 @@
-module github.com/sai-gon-development/go-ghn/go-ghn-service
+module github.com/sai-gon-development/go-ghn
 
 go 1.18
 

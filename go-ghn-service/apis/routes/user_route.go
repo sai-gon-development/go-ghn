@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/sai-gon-development/go-ghn/go-ghn-service/apis/controllers"
+	"github.com/sai-gon-development/go-ghn/apis/controllers"
 )
 
 func UserRoute(router *gin.Engine) {
