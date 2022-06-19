@@ -41,6 +41,7 @@ func CreateUser() gin.HandlerFunc {
 			Name:     user.Name,
 			Location: user.Location,
 			Title:    user.Title,
+			Time:     time.Now(),
 		}
 
 		result, err := userCollection.InsertOne(ctx, newUser)
